@@ -1,0 +1,28 @@
+<div class="container">
+  <div><h1>☺️ New game ☺️</h1></div>
+  <div class="container">
+    <div class="row justify-content-between">
+      <% @letters.each do |array_item| %>
+      <div class="col letter-box">
+        <%= array_item %>
+      </div>
+      <% end %>
+      <%# <div class="col letter-box">
+      O
+      </div> %>
+    </div>
+    <div class="row ">
+      <form action="score" method="post" data-turbo="false">
+        <label class="label-text">What is the longest word you can find?</label><br>
+        <input type="text" name="word_entry">
+        <input type="hidden" name="letters" value="<%= @letters %>">
+        <input type="submit" value="Play">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </form>
+    </div>
+    <div class="none">
+    </div>
+  </div>
+
+<!-- end container -->
+</div>
